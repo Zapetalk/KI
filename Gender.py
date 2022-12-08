@@ -56,7 +56,7 @@ model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['acc'])
 log_dir = "logs/Gender/" + datetime.now().strftime("%Y%m%d-%H%M%S")
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
 
-model.fit(ds_train, epochs=100, steps_per_epoch=100, validation_data=ds_validation, validation_steps=50,
+model.fit(ds_train, epochs=30, steps_per_epoch=70, validation_data=ds_validation, validation_steps=50,
           callbacks=[tensorboard_callback])
 model.save('Gender_4.h5')
 train_label = np.hstack([y for x, y in ds_validation])
